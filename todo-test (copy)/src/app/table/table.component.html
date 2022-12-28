@@ -1,0 +1,92 @@
+<div class="container">
+	<table *ngIf="flag==false">
+		<thead>
+			<tr>
+				<th>Todo Title</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th>Status</th>
+				<th>Comments</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let variable of data">
+				<td>{{variable.title}}</td>
+				<td>{{variable.startDate | date: "MMM d, y "}}</td>
+				<td>{{variable.endDate | date: "MMM d, y "}}</td>
+				<td>{{variable.status}}</td>
+				<td>{{variable.comments}}</td>
+				<td class=button-td>
+					<!-- [routerLink]="['/update']" -->
+					<button  	(click)="updater(variable.id)" mat-fab color="primary" class="button1"
+						aria-label="Example icon button with a delete icon">
+						<mat-icon>edit</mat-icon>
+					</button>
+
+					<button type="button" (click)="deleter(variable.id)" mat-fab color="primary"
+						aria-label="Example icon button with a delete icon">
+						<mat-icon>delete</mat-icon>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<form [formGroup]="viewForm">
+	<table *ngIf="flag==true">
+		<thead>
+			<tr>
+				<th>Todo Title</th>
+				<th>Date</th>
+				<th>Status</th>
+				<th>Comments</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+
+				<tr *ngFor="let variable of data">
+					<td><mat-form-field appearance="fill">
+							<mat-label>Todo Title</mat-label>
+							<input matInput formControlName="title" type="text" name="todoName" required />
+						</mat-form-field></td>
+
+					<td><mat-form-field appearance="fill">
+						<mat-label>Enter a date range</mat-label>
+						<mat-date-range-input [rangePicker]="picker">
+						  <input matStartDate formControlName="startDate" placeholder="Start date" name="startDate"/>
+						  <input matEndDate formControlName="endDate" placeholder="End date" name="endDate" />
+						</mat-date-range-input>
+						<mat-datepicker-toggle
+						  matIconSuffix
+						  [for]="picker"
+						></mat-datepicker-toggle>
+						<mat-date-range-picker #picker></mat-date-range-picker>
+					  </mat-form-field></td>
+
+					<td><mat-form-field appearance="fill">
+							<mat-label>Status</mat-label>
+							<mat-select name="todoStatus" formControlName="status" value="Yet to Start">
+								<mat-option value="Yet to Start">Yet to Start</mat-option>
+								<mat-option value="Ongoing">Ongoing</mat-option>
+								<mat-option value="Completed">Completed</mat-option>
+							</mat-select>
+						</mat-form-field></td>
+
+					<td><mat-form-field appearance="fill">
+							<mat-label>Comments</mat-label>
+							<input matInput formControlName="comments" type="text" name="todoName" required />
+						</mat-form-field></td>
+
+					<td class=button-td>
+
+						<button type="button" (click)="editView()" mat-fab color="primary"
+							aria-label="Example icon button with a delete icon">
+							<mat-icon>save</mat-icon>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>

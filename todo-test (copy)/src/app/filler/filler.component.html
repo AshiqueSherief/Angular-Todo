@@ -1,0 +1,40 @@
+<form [formGroup]="viewForm" class="container">
+    <mat-form-field appearance="fill">
+      <mat-label>Todo Title</mat-label>
+      <input matInput formControlName="title" type="text" name="todoName" required />
+    </mat-form-field>
+
+  <mat-form-field appearance="fill">
+      <mat-label>Start Date</mat-label>
+      <input matInput formControlName="startDate" [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+  <mat-form-field appearance="fill">
+      <mat-label>End Date</mat-label>
+      <input matInput formControlName="endDate" [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+  <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select name="todoStatus" formControlName="status" value="Yet to Start">
+        <mat-option value="Yet to Start">Yet to Start</mat-option>
+        <mat-option value="Ongoing">Ongoing</mat-option>
+        <mat-option value="Completed">Completed</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <mat-form-field appearance="fill">
+      <mat-label>Comments</mat-label>
+      <input matInput formControlName="comments" type="text" name="todoName" required />
+    </mat-form-field>
+
+    <button type="button" (click)="editView()" mat-fab color="primary"
+      aria-label="Example icon button with a delete icon">
+      <mat-icon>save</mat-icon>
+    </button>

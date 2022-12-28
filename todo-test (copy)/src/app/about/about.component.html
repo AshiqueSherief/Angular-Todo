@@ -1,0 +1,85 @@
+<div class="containter">
+    <div class="container_main">
+        <div>
+            <div style="display: flex; justify-content: center; margin-top: 5%">
+                <form [formGroup]="viewForm" class="container">
+                  <!-- <mat-form-field appearance="fill">
+                    <mat-label>Todo Title</mat-label>
+                    <input matInput formControlName="title" type="text" name="todoName" required />
+                  </mat-form-field>
+      
+                <mat-form-field appearance="fill">
+                    <mat-label>Start Date</mat-label>
+                    <input matInput formControlName="startDate" [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+      
+                <mat-form-field appearance="fill">
+                    <mat-label>End Date</mat-label>
+                    <input matInput formControlName="endDate" [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+      
+                <mat-form-field appearance="fill">
+                    <mat-label>Status</mat-label>
+                    <mat-select name="todoStatus" formControlName="status" value="Yet to Start">
+                      <mat-option value="Yet to Start">Yet to Start</mat-option>
+                      <mat-option value="Ongoing">Ongoing</mat-option>
+                      <mat-option value="Completed">Completed</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+      
+                <mat-form-field appearance="fill">
+                    <mat-label>Comments</mat-label>
+                    <input matInput formControlName="comments" type="text" name="todoName" required />
+                  </mat-form-field>
+            
+                  <button type="button" (click)="editView()" mat-fab color="primary"
+                    aria-label="Example icon button with a delete icon">
+                    <mat-icon>save</mat-icon>
+                  </button> -->
+              
+                  <mat-form-field appearance="fill">
+                    <mat-label>Todo Title</mat-label>
+                    <input matInput  formControlName="title"  type="text" name="todoName" required/>
+                  </mat-form-field>
+              
+                  <mat-form-field appearance="fill">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                      <input matStartDate formControlName="startDate" placeholder="Start date" name="startDate"/>
+                      <input matEndDate formControlName="endDate" placeholder="End date" name="endDate" />
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Status</mat-label>
+                    <mat-select name="todoStatus" formControlName="status" value="Yet to Start">
+                      <mat-option value="Yet to Start">Yet to Start</mat-option>
+                      <mat-option value="Ongoing">Ongoing</mat-option>
+                      <mat-option value="Completed">Completed</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  
+                  <mat-form-field appearance="fill">
+                    <mat-label>Comments</mat-label>
+                    <textarea matInput formControlName="comments" name="todoComment"></textarea>
+                  </mat-form-field>
+              
+                 <!--button -->
+                  <button class="button-59" [routerLink]="['/']" (click)="editView()" type="submit">Add Todo</button>
+                  <!-- button -->
+                    </form>
+              </div>
+            </div>
+        </div>
+</div>
